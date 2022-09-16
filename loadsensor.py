@@ -19,8 +19,8 @@ hx.set_reading_format("MSB", "MSB")
 hx.set_reference_unit(360.5)
 
 hx.reset()
+print("Taring, please wait...")
 hx.tare()
-# print("Tare done!")
 
 def cleanAndExit():
     print("Cleaning...")

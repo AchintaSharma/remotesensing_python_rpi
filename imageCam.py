@@ -17,6 +17,8 @@ def runCamera():
     #store image
     # filename = "image" + i;
     file_name = "./images/image" + str(time.time()) + ".jpg"
+    print("file name is : " + file_name)
     camera.capture(file_name)
     camera.stop_preview()
     camera.close()
+    return file_name
