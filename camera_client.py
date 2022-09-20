@@ -3,6 +3,9 @@ import datetime
 import time
 import picamera
 from time import sleep
+import requests
+from requests.structures import CaseInsensitiveDict
+
 
 def runCamera():
     #create object for PiCamera class
@@ -24,4 +27,16 @@ def runCamera():
     camera.close()
     return file_name
 
-runCamera()
+
+
+url = 'http://192.168.29.184:8080/tutorial/save_imagetoDB/index2.php'
+
+    
+file = runCamera();
+print("file name in client side : " + file)
+files = {'media': open(file, 'rb')}
+requests.post(url, files=files)   
+print(files);
+time.sleep(2.0)
+print("Executed")
+
